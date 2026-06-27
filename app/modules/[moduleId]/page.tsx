@@ -138,6 +138,7 @@ export default function ModuleDetailPage() {
           {canStartCheck ? (
             <div className="space-y-3">
               <button
+                data-testid="enter-check"
                 onClick={handleStartCheck}
                 disabled={starting || !module.checkId}
                 className="w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50"

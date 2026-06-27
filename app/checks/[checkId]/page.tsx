@@ -105,6 +105,7 @@ export default function CheckPage() {
                 <div className="flex-1">
                   <p className="text-body-md font-medium text-text-primary mb-3">{item.prompt}</p>
                   <textarea
+                    data-testid={`check-item-${i}`}
                     value={responses[item.id] || ''}
                     onChange={e => setResponses(prev => ({ ...prev, [item.id]: e.target.value }))}
                     placeholder="Your answer…"
@@ -123,6 +124,7 @@ export default function CheckPage() {
           </div>
 
           <button
+            data-testid="submit-check"
             type="submit"
             disabled={!allAnswered || submitting}
             className="w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
@@ -193,7 +195,7 @@ function CheckResult({ result, moduleId, checkId }: {
       <div className="w-full max-w-md">
         <div className={`rounded-2xl border ${c.borderColor} ${c.bg} p-8 text-center`}>
           <div className={`text-4xl font-bold mb-3 ${c.color}`}>{c.icon}</div>
-          <h1 className={`text-heading-lg font-semibold mb-2 ${c.color}`}>{c.heading}</h1>
+          <h1 data-testid={result.verdict === 'PASS' ? 'result-pass' : undefined} className={`text-heading-lg font-semibold mb-2 ${c.color}`}>{c.heading}</h1>
           <p className="text-body-md text-text-secondary mb-4">{c.sub}</p>
 
           <div className="bg-card rounded-lg p-3 mb-5 inline-block">
@@ -219,6 +221,7 @@ function CheckResult({ result, moduleId, checkId }: {
           )}
 
           <button
+            data-testid={result.verdict === 'PASS' ? 'next-module' : undefined}
             onClick={c.ctaAction}
             className="w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity"
           >

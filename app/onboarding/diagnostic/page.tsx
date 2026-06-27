@@ -96,6 +96,7 @@ function DiagnosticContent() {
             {item.options.map(opt => (
               <button
                 key={opt.value}
+                data-testid={`diagnostic-option-${opt.value}`}
                 onClick={() => setSelected(opt.value)}
                 className={`w-full text-left px-4 py-3 rounded-lg border text-body-md transition-all ${
                   selected === opt.value
@@ -110,6 +111,7 @@ function DiagnosticContent() {
         </div>
 
         <button
+          data-testid="diagnostic-submit"
           onClick={handleAnswer}
           disabled={!selected || submitting}
           className="mt-4 w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50"

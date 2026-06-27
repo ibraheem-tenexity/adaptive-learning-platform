@@ -61,6 +61,7 @@ export default function DashboardClient({ goal, weeklySlice, projection, skillMa
               <p className="text-body-md text-text-secondary mb-1">{nextAction.objective}</p>
               <p className="text-caption text-text-tertiary mb-5">~{nextAction.estMinutes} min</p>
               <button
+                data-testid="next-action"
                 onClick={() => router.push(`/modules/${nextAction.id}`)}
                 className="px-6 py-3 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity"
               >

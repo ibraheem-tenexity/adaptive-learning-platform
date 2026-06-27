@@ -66,6 +66,30 @@ export default function LoginPage() {
           </button>
           <p className="text-center text-caption text-text-tertiary">Demo: demo@example.com / demo-learn-2026</p>
         </form>
+
+        <button
+          data-testid="start-path"
+          onClick={async () => {
+            setLoading(true);
+            setError('');
+            const res = await fetch('/api/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: 'demo@example.com', password: 'demo-learn-2026' }),
+            });
+            if (res.ok) {
+              router.push('/onboarding/goal');
+            } else {
+              const data = await res.json();
+              setError(data.error || 'Login failed');
+              setLoading(false);
+            }
+          }}
+          disabled={loading}
+          className="mt-4 w-full py-2.5 px-4 border border-brand text-brand rounded-md text-body-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+        >
+          Start a learning path →
+        </button>
       </div>
     </div>
   );
