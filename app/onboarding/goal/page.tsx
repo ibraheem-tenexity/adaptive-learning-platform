@@ -42,6 +42,7 @@ export default function GoalPage() {
           <div>
             <label className="block text-body-sm font-medium text-text-primary mb-2">Your learning goal</label>
             <textarea
+              data-testid="goal-input"
               value={goalText}
               onChange={e => setGoalText(e.target.value)}
               placeholder="e.g. Learn React from scratch and build my first web app"
@@ -77,6 +78,7 @@ export default function GoalPage() {
               Weekly time budget: <span className="text-brand font-semibold">{weeklyMinutes} min</span>
             </label>
             <input
+              data-testid="weekly-minutes"
               type="range"
               min={30}
               max={600}
@@ -94,6 +96,7 @@ export default function GoalPage() {
           {error && <p className="text-danger text-body-sm">{error}</p>}
 
           <button
+            data-testid="start-diagnostic"
             type="submit"
             disabled={loading || goalText.length < 10}
             className="w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
