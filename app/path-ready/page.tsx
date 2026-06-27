@@ -6,9 +6,9 @@ import { getActivePathForGoal, getModulesForPath } from '@/lib/path';
 import { computeWeeklySlice, computeFinishProjection } from '@/lib/slice';
 import PathReadyClient from './PathReadyClient';
 
-export default async function PathReadyPage({ searchParams }: { searchParams: { goalId?: string } }) {
+export default async function PathReadyPage({ searchParams }: { searchParams: Promise<{ goalId?: string }> }) {
   const session = await requireSession();
-  const goalId = searchParams.goalId;
+  const { goalId } = await searchParams;
   if (!goalId) return <div className="p-8 text-danger">Missing goalId</div>;
 
   const db = getDb();

@@ -6,14 +6,15 @@ import { eq } from 'drizzle-orm';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { moduleId: string } }
+  { params }: { params: Promise<{ moduleId: string }> }
 ) {
   await requireSession();
+  const { moduleId } = await params;
   const db = getDb();
 
   const [check] = await db.select({ id: checks.id, moduleId: checks.moduleId })
     .from(checks)
-    .where(eq(checks.moduleId, params.moduleId))
+    .where(eq(checks.moduleId, moduleId))
     .limit(1);
 
   if (!check) return NextResponse.json({ error: 'No check found' }, { status: 404 });

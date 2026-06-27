@@ -1,8 +1,8 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { Suspense, useState, useEffect, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function GeneratingPage() {
+function GeneratingContent() {
   const router = useRouter();
   const params = useSearchParams();
   const goalId = params.get('goalId');
@@ -75,5 +75,13 @@ export default function GeneratingPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function GeneratingPage() {
+  return (
+    <Suspense>
+      <GeneratingContent />
+    </Suspense>
   );
 }

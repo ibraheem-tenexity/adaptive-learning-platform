@@ -4,9 +4,10 @@ import { startModule } from '@/lib/adaptation';
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { moduleId: string } }
+  { params }: { params: Promise<{ moduleId: string }> }
 ) {
   await requireSession();
-  await startModule(params.moduleId);
+  const { moduleId } = await params;
+  await startModule(moduleId);
   return NextResponse.json({ ok: true });
 }

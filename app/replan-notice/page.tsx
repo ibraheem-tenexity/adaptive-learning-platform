@@ -1,7 +1,8 @@
 'use client';
+import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function ReplanNoticePage() {
+function ReplanNoticeContent() {
   const router = useRouter();
   const params = useSearchParams();
   const reason = params.get('reason') || 'based on your recent progress';
@@ -25,5 +26,13 @@ export default function ReplanNoticePage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function ReplanNoticePage() {
+  return (
+    <Suspense>
+      <ReplanNoticeContent />
+    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { DiagnosticState } from '@/lib/zod/diagnostic';
 
@@ -10,7 +10,7 @@ interface DiagnosticItemView {
   conceptArea: string;
 }
 
-export default function DiagnosticPage() {
+function DiagnosticContent() {
   const router = useRouter();
   const params = useSearchParams();
   const goalId = params.get('goalId');
@@ -122,5 +122,13 @@ export default function DiagnosticPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function DiagnosticPage() {
+  return (
+    <Suspense>
+      <DiagnosticContent />
+    </Suspense>
   );
 }
