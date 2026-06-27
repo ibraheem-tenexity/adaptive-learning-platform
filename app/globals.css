@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   TENEXITY DESIGN SYSTEM — tokens.css
+   All colors HSL. Light-first. Dark is opt-in.
+   ============================================================ */
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 6% 10%;
+    --raised: 0 0% 100%;
+    --raised-foreground: 240 6% 10%;
+    --sunken: 240 5% 96%;
+    --sunken-foreground: 240 6% 10%;
+    --ink: 222 18% 3%;
+    --ink-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 10%;
+    --text-primary: 240 6% 10%;
+    --text-secondary: 240 4% 34%;
+    --text-tertiary: 240 4% 56%;
+    --border: 240 5% 91%;
+    --border-subtle: 240 5% 91%;
+    --border-default: 240 5% 84%;
+    --input: 240 5% 84%;
+    --brand: 214 100% 55%;
+    --brand-foreground: 0 0% 100%;
+    --brand-soft: 214 100% 95%;
+    --brand-deep: 214 91% 41%;
+    --primary: 214 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 34%;
+    --accent: 214 100% 95%;
+    --accent-foreground: 214 91% 41%;
+    --destructive: 0 74% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 214 100% 55%;
+    --success: 159 94% 30%;
+    --success-foreground: 0 0% 100%;
+    --success-soft: 152 76% 94%;
+    --warning: 27 96% 43%;
+    --warning-foreground: 0 0% 100%;
+    --warning-soft: 38 92% 92%;
+    --danger: 0 74% 50%;
+    --danger-foreground: 0 0% 100%;
+    --danger-soft: 0 86% 95%;
+    --info: 214 100% 55%;
+    --info-foreground: 0 0% 100%;
+    --info-soft: 214 100% 95%;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+    --radius: var(--radius-md);
+    --shadow-xs: 0 1px 2px 0 hsl(240 6% 10% / 0.04);
+    --shadow-sm: 0 2px 6px -2px hsl(240 6% 10% / 0.06), 0 1px 2px hsl(240 6% 10% / 0.04);
+    --shadow-md: 0 8px 24px -8px hsl(240 6% 10% / 0.10), 0 2px 6px -2px hsl(240 6% 10% / 0.06);
+    --shadow-lg: 0 24px 48px -12px hsl(240 6% 10% / 0.18), 0 4px 12px -4px hsl(240 6% 10% / 0.08);
+    --shadow-focus: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--brand));
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 6% 10%;
+    --sidebar-primary: 214 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 100% 95%;
+    --sidebar-accent-foreground: 214 91% 41%;
+    --sidebar-border: 240 5% 91%;
+    --sidebar-ring: 214 100% 55%;
+  }
+
+  .dark {
+    --background: 222 18% 3%;
+    --foreground: 0 0% 98%;
+    --raised: 225 14% 8%;
+    --raised-foreground: 0 0% 98%;
+    --sunken: 217 33% 17%;
+    --sunken-foreground: 0 0% 98%;
+    --ink: 0 0% 98%;
+    --ink-foreground: 222 18% 3%;
+    --card: 225 14% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 225 14% 8%;
+    --popover-foreground: 0 0% 98%;
+    --text-primary: 0 0% 98%;
+    --text-secondary: 240 5% 65%;
+    --text-tertiary: 240 5% 47%;
+    --border: 240 4% 16%;
+    --border-subtle: 240 4% 16%;
+    --border-default: 240 5% 26%;
+    --input: 240 4% 16%;
+    --brand: 214 100% 65%;
+    --brand-foreground: 222 18% 3%;
+    --brand-soft: 214 75% 15%;
+    --brand-deep: 214 100% 75%;
+    --primary: 214 100% 65%;
+    --primary-foreground: 222 18% 3%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 214 75% 15%;
+    --accent-foreground: 214 100% 75%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 214 100% 65%;
+    --success: 159 70% 40%;
+    --success-soft: 152 50% 14%;
+    --warning: 38 92% 55%;
+    --warning-soft: 27 60% 14%;
+    --danger: 0 75% 60%;
+    --danger-soft: 0 50% 16%;
+    --info: 214 100% 65%;
+    --info-soft: 214 75% 15%;
+    --sidebar-background: 222 18% 3%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 214 100% 65%;
+    --sidebar-primary-foreground: 222 18% 3%;
+    --sidebar-accent: 214 75% 15%;
+    --sidebar-accent-foreground: 214 100% 75%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 214 100% 65%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body { @apply bg-background text-foreground; }
+  :where(button,[role="button"],a,input,select,textarea,[tabindex]):focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    border-radius: var(--radius-md);
+  }
+  ::selection { background: hsl(var(--brand) / 0.25); }
+}
+
+@layer utilities {
+  .agent-at-work {
+    background-image: linear-gradient(90deg, hsl(var(--brand)/0) 0%, hsl(var(--brand)/0.10) 45%, hsl(var(--brand)/0.18) 50%, hsl(var(--brand)/0.10) 55%, hsl(var(--brand)/0) 100%);
+    background-size: 200% 100%;
+    animation: agent-shimmer 2s linear infinite;
+  }
+  .ai-tint {
+    background: hsl(var(--brand) / 0.06);
+    box-shadow: inset 2px 0 0 0 hsl(var(--brand) / 0.4);
+  }
+  @keyframes agent-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
