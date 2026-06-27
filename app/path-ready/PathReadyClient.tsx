@@ -38,7 +38,10 @@ export default function PathReadyClient({ goal, slice, projection, allModules }:
         </div>
 
         <button
-          onClick={() => router.push('/dashboard')}
+          onClick={() => {
+            const first = allModules.find(m => m.status === 'available' || m.status === 'in_progress');
+            router.push(first ? `/modules/${first.id}` : '/dashboard');
+          }}
           className="w-full py-3 px-4 bg-brand text-brand-foreground rounded-lg text-body-md font-medium hover:opacity-90 transition-opacity"
         >
           Begin first module →

@@ -47,9 +47,6 @@ export function updateState(
 
 export function isDiagnosticComplete(state: DiagnosticState, answeredIds: string[]): boolean {
   if (state.itemsAnswered >= MAX_ITEMS) return true;
-  if (state.itemsAnswered >= MIN_ITEMS) {
-    const available = DIAGNOSTIC_ITEMS.filter(item => !answeredIds.includes(item.id));
-    return available.length === 0;
-  }
+  if (state.itemsAnswered >= MIN_ITEMS) return true;
   return false;
 }
